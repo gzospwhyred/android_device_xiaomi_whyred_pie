@@ -57,6 +57,10 @@ setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" false "$CLEAN_VENDOR"
 
 extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
 
+GOODIX="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/vendor/lib64/libgf_ca.so
+
+sed -i "s|/system/etc/firmware|/vendor/firmware\x0\x0\x0\x0|g" $GOODIX
+
 BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
 patchelf --set-soname libicuuc-v27.so $BLOB_ROOT/vendor/lib/libicuuc-v27.so
 patchelf --set-soname libminikin-v27.so $BLOB_ROOT/vendor/lib/libminikin-v27.so
@@ -66,3 +70,4 @@ patchelf --replace-needed libminikin.so libminikin-v27.so $BLOB_ROOT/vendor/lib/
 patchelf --replace-needed libicuuc.so libicuuc-v27.so $BLOB_ROOT/vendor/lib/libMiWatermark.so
 
 "$MY_DIR"/setup-makefiles.sh
+
