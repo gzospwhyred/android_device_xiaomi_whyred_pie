@@ -189,8 +189,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #Expose aux camera for below packages
 PRODUCT_PROPERTY_OVERRIDES += \
-    camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.qualcomm.qti.qmmi \
-    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.qualcomm.qti.qmmi
+    camera.aux.packagelist=com.android.camera \
+    vendor.camera.aux.packagelist=com.android.camera \
+    camera.hal1.packagelist=com.whatsapp,com.facebook.katana,com.instagram.android,com.snapchat.android
 
 #disable UBWC for camera
 PRODUCT_PROPERTY_OVERRIDES += \
