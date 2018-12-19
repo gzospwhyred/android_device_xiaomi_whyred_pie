@@ -25,6 +25,9 @@ $(call inherit-product, device/xiaomi/whyred/device.mk)
 # Inherit some NOS stuff
 $(call inherit-product, vendor/nitrogen/products/common.mk)
 
+# Miui Camera
+$(call inherit-product-if-exists, vendor/MiuiCamera/config.mk)
+
 # Device identifier
 PRODUCT_NAME := nitrogen_whyred
 PRODUCT_BRAND := Xiaomi
